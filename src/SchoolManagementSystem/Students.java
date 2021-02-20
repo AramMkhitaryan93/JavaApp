@@ -48,12 +48,12 @@ public class Students {
      *
      * @param fees
      */
-    public void updateFeesPaid(int fees) {
-        feesPaid = feesPaid + fees;
+    public void payFees(int fees) {
+        feesPaid =feesPaid-fees;
+School.updateTotalMoneyEarned(feesPaid);
     }
 
     /**
-     *
      * @return id of the students.
      */
     public int getId() {
@@ -61,7 +61,6 @@ public class Students {
     }
 
     /**
-     *
      * @return name of the students.
      */
     public String getName() {
@@ -69,7 +68,6 @@ public class Students {
     }
 
     /**
-     *
      * @return grade of the students.
      */
     public int getGrade() {
@@ -77,7 +75,6 @@ public class Students {
     }
 
     /**
-     *
      * @return feesPaid of the students.
      */
     public int getFeesPaid() {
@@ -85,10 +82,21 @@ public class Students {
     }
 
     /**
-     *
      * @return feesTotal of the students.
      */
     public int getFeesTotal() {
         return feesTotal;
+    }
+
+    /**
+     * @return the returning fees.
+     */
+    public int getRemainingFees() {
+        return feesTotal - feesPaid;
+    }
+
+    @Override
+    public String toString() {
+        return "Students name : "+name+" Total fees paid so far $"+feesPaid;
     }
 }
