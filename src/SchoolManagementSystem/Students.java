@@ -52,4 +52,43 @@ public class Students {
         feesPaid = feesPaid + fees;
     }
 
+    /**
+     *
+     * @return id of the students.
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     *
+     * @return name of the students.
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     *
+     * @return grade of the students.
+     */
+    public int getGrade() {
+        return grade;
+    }
+
+    /**
+     *
+     * @return feesPaid of the students.
+     */
+    public int getFeesPaid() {
+        return feesPaid;
+    }
+
+    /**
+     *
+     * @return feesTotal of the students.
+     */
+    public int getFeesTotal() {
+        return feesTotal;
+    }
 }
