@@ -11,4 +11,7 @@ public class School {
     private Students students;
     private int totalMoneyEarned;
     private int totalMoneySpent;
+    public School(){
+
+    }
 }
