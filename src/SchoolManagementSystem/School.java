@@ -11,8 +11,8 @@ import java.util.List;
 public class School {
     private List<Teacher> teachers;
     private List<Students> students;
-    private int totalMoneyEarned;
-    private int totalMoneySpent;
+    private static int totalMoneyEarned;
+    private static int totalMoneySpent;
 
     /**
      * new school object is created.
@@ -71,7 +71,7 @@ public class School {
      *
      * @param moneyEarned money that is supposed to be added.
      */
-    public void updateTotalMoneyEarned(int moneyEarned) {
+    public static void updateTotalMoneyEarned(int moneyEarned) {
         totalMoneyEarned += moneyEarned;
     }
 
@@ -87,7 +87,7 @@ public class School {
      * is the salary given by the school to its teachers.
      * @param moneySpent the money spent by school.
      */
-    public void updateTotalMoneySpent(int moneySpent) {
+    public   void updateTotalMoneySpent(int moneySpent) {
         totalMoneySpent -= moneySpent;
     }
 }
