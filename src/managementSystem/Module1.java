@@ -1,6 +1,6 @@
 package managementSystem;
 
-public class Students {
+public class Module1 {
     private String name;
     private int age;
 }
