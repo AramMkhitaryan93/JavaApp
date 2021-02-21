@@ -1,4 +1,4 @@
-package SchoolManagementSystem;
+package schoolManagementSystem;
 
 import java.util.List;
 
