@@ -1,4 +1,4 @@
-package SchoolManagementSystem;
+package schoolManagementSystem;
 
 /**
  * Created by Aram on 20/02/2021.
