@@ -85,9 +85,10 @@ public class School {
     /**
      * update the money spent by the school which
      * is the salary given by the school to its teachers.
+     *
      * @param moneySpent the money spent by school.
      */
-    public   void updateTotalMoneySpent(int moneySpent) {
+    public void updateTotalMoneySpent(int moneySpent) {
         totalMoneySpent -= moneySpent;
     }
 }
