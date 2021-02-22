@@ -38,14 +38,14 @@ public class User {
         //set user's name
         this.firstName = firstName;
         this.lastName = lastName;
-        //store the pin's MDS hash, rater than the original vale,for
+        //store the pin's MD5 hash, rater than the original vale,for
         // security reasons
 
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
             this.pinHash = md.digest(pin.getBytes());
         } catch (NoSuchAlgorithmException e) {
-            System.out.println("error,caught NoSuchAlgorithmException");
+            System.err.println("error,caught NoSuchAlgorithmException");
             e.printStackTrace();
             System.exit(1);
         }
@@ -80,7 +80,7 @@ public class User {
      */
     public boolean validatePin(String aPin){
         try {
-            MessageDigest md=MessageDigest.getInstance("MDS");
+            MessageDigest md=MessageDigest.getInstance("MD5");
             return MessageDigest.isEqual(md.digest(aPin.getBytes()),this.pinHash );
         } catch (NoSuchAlgorithmException e) {
             System.out.println("error,caught NoSuchAlgorithmException");
@@ -88,5 +88,69 @@ public class User {
             System.exit(1);
         }
         return false;
+    }
+
+    /**
+     * Return the user's first name
+     * @return the first name
+     */
+    public String getFirstName(){
+        return this.firstName;
+    }
+
+    /**
+     * Print summaries for the accounts of this user
+     */
+    public void printAccountsSummary(){
+        System.out.printf("\n\n%s's accounts summary\n",this.firstName);
+        for (int a = 0; a < this.accounts.size(); a++) {
+            System.out.printf("%d)%s\n",a+1,
+                    this.accounts.get(a).getSummaryLine());
+        }
+        System.out.printf("");
+    }
+
+    /**
+     * Get the number of accounts of the user
+     * @return the number of accounts
+     */
+    public int numAccounts(){
+        return this.accounts.size();
+    }
+
+    /**
+     * Print transaction history for a particular  account
+     * @param aIndex acctIdx the index of the account to use
+     */
+    public void  printAccountsTransHistory(int aIndex){
+        this.accounts.get(aIndex).printTransHistory();
+    }
+
+    /**
+     * Get the balance of a particular account
+     * @param acctIdx the index of the account to use
+     * @return the balance of the account
+     */
+    public double getAcctBalance(int acctIdx){
+        return this.accounts.get(acctIdx).getBalance();
+    }
+
+    /**
+     * Get the UUID of a particular account
+     * @param acctIdx the index of the account to use
+     * @return the UUID of the account
+     */
+    public  String getAcctUUID(int acctIdx){
+        return this.accounts.get(acctIdx).getUUID();
+    }
+
+    /**
+     * Add a transaction to a particular account
+     * @param acctIdx the index of the account
+     * @param amount the amont of the transaction
+     * @param memo the memo of the transaction
+     */
+    public void  addAcctTransaction(int acctIdx,double amount,String memo){
+        this.accounts.get(acctIdx).addTransaction(amount,memo);
     }
 }
