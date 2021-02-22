@@ -64,4 +64,29 @@ public class User {
     public void addAccount(Account anAcct){
         this.accounts.add(anAcct);
     }
+
+    /**
+     *  Return the user's UUID
+     * @return the uuid
+     */
+    public String getUUID(){
+        return this.uuid;
+    }
+
+    /**
+     * Check whether a given pin matches the true User pin
+     * @param aPin the pin to check
+     * @return whether the pin is valid or not
+     */
+    public boolean validatePin(String aPin){
+        try {
+            MessageDigest md=MessageDigest.getInstance("MDS");
+            return MessageDigest.isEqual(md.digest(aPin.getBytes()),this.pinHash );
+        } catch (NoSuchAlgorithmException e) {
+            System.out.println("error,caught NoSuchAlgorithmException");
+            e.printStackTrace();
+            System.exit(1);
+        }
+        return false;
+    }
 }
