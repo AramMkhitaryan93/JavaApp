@@ -6,7 +6,7 @@ public class Transaction {
     /**
      * The amount of this transaction.
      */
-    private double count;
+    private double amount;
     /**
      * The time and date of this transaction.
      */
@@ -19,4 +19,29 @@ public class Transaction {
      * The account in which the transaction was performed.
      */
     private Account inAccount;
+
+    /**
+     * Crate a new transaction
+     * @param amount the amount transacted
+     * @param inAccount the account the transaction belongs to
+     */
+    public Transaction(double amount, Account inAccount) {
+        this.amount = amount;
+        this.inAccount = inAccount;
+        this.timestamp = new Date();
+        this.memo = "";
+    }
+
+    /**
+     * Create a new transaction
+     * @param amount the amount transacted
+     * @param memo the memo transaction
+     * @param inAccount the account the transaction belongs to
+     */
+    public Transaction(double amount, String memo, Account inAccount) {
+//call the two-are constructor first
+        this(amount,inAccount);
+        //set the memo
+        this.memo=memo;
+    }
 }
