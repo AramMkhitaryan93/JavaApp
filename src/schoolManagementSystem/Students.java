@@ -46,11 +46,11 @@ public class Students {
      * Add the fees to the paid
      * The school is going receive the funds
      *
-     * @param fees
+     * @param fees new fees of the student
      */
     public void payFees(int fees) {
-        feesPaid =feesPaid-fees;
-School.updateTotalMoneyEarned(feesPaid);
+        feesPaid = feesPaid - fees;
+        School.updateTotalMoneyEarned(feesPaid);
     }
 
     /**
@@ -97,6 +97,6 @@ School.updateTotalMoneyEarned(feesPaid);
 
     @Override
     public String toString() {
-        return "Students name : "+name+" Total fees paid so far $"+feesPaid;
+        return "Students name : " + name + " Total fees paid so far $" + feesPaid;
     }
 }
